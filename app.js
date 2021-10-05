@@ -36,9 +36,8 @@ function login() {
     $loginForm.addEventListener('submit', onSubmit)
   } else {
     paintGreet(saveUsername)
+    console.log(`hello, ${saveUsername}`)
   }
-  
-  console.log(`hello, ${saveUsername}`)
 }
 
 /**
