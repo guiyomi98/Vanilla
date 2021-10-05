@@ -142,7 +142,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-family: Calibri, Candara, Segoe, Segoe UI, Arial, sans-serif;
     line-height: 1;
     color: var(--black-color);
     -webkit-font-smoothing: antialiased;
