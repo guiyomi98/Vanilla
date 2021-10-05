@@ -100,27 +100,143 @@ a {
 caption {
     display: none;
 }
+input[type="text"] {
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+}
+*:disabled {
+    cursor: not-allowed;
+}
+/* defualt */
 :root {
     --black-color: #141414;
+    --gray-color: #cdcdcd;
     --second-gray-color: #eee;
     --primary-color: #009ce0;
+    --primary-dark: #362A89;
     --secondary-color: #858585;
+    --background: #F6F8FF;
+    --text-color: #818190;
+    --border-default: #D0D0DF;
+    --border-active: #3D6DF9;
+    --shadow-default: rgba(32, 32, 72, .2);
+    --shadow-active: rgba(61, 109, 249, .25);
+    --placeholder-color: #C9C9D9;
+    --placeholder-color-hover: #BABAC9;
+    --close: #818190;
+    --close-light: #BABAC9;
+    --close-background: #F1F1FA;
+
+    --white: #fff;
+    --grey-light: #A6ACCD;
+    --pale: #ECEFFC;
 }
 html {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     -ms-text-size-adjust: none;
     -webkit-text-size-adjust: none;
 }
 body {
+    position: relative;
     width: 100%;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
+    height: 100%;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     line-height: 1;
     color: var(--black-color);
-    background-color: var(--second-gray-color);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+/* layout */
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+}
+.section .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--placeholder-color);
+    margin-bottom: 1rem;
+}
+.section .sub_title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--gray-color);
+}
+.form .btn {
+    position: relative;
+    width: 100%;
+    color: #fff;
+    padding: .6rem 0;
+    border-radius: 8px;
+    background: var(--primary-dark);
+    /* transition: color 0.3s, background 0.3s; */
+}
+.form .btn:disabled {
+    color: var(--grey-light);
+    background-color: var(--pale);
+}
+.feild + .btn {
+    margin-top: .6rem;
+}
+.section .user {
+    color: var(--black-color);
+}
+
+/* components */
+.feild {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: inset 0 0 0 var(--border-width, 1px) var(--border, var(--border-default)), 0 1px 3px var(--shadow, var(--shadow-default));
+    transition: box-shadow .2s;
+    overflow: hidden;
+    --clear-x: 0px;
+    --clear-swipe-left: 0px;
+    --clear-swipe-x: 0;
+    --clear-swipe: 0px;
+    --clear-scale: 0;
+    --clear-rotate: 0deg;
+    --clear-opacity: 0;
+    --clear-arrow-o: 1;
+    --clear-arrow-x: 0px;
+    --clear-arrow-y: 0px;
+    --clear-arrow-offset: 4px;
+    --clear-arrow-offset-second: 4px;
+    --clear-line-array: 8.5px;
+    --clear-line-offset: 27px;
+    --clear-long-array: 8.5px;
+    --clear-long-offset: 24px;
+}
+.feild .input {
+    width: 100%;
+    color: var(--text-color);
+    padding: .5rem 1rem;
+}
+.feild .input::placeholder {
+    color: var(--placeholder-color);
+    transition: color .2s;
+}
+.feild .input:focus-within {
+    --border-width: 1.5px;
+    --border: var(--border-active);
+    --shadow: var(--shadow-active);
+}
+.feild:hover .input::placeholder {
+    color: var(--placeholder-color-hover);
 }
 
 /* Utility classes */

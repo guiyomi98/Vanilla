@@ -5,19 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>login</title>
+    <title>로그인 | 자바스크립트 연습</title>
 </head>
 <body>
-    <section class="page" id="pgLogin">
-        <h1>LOGIN</h1>
-        <form id="formLogin">
-            <input type="text" placeholder="What is your NAME?" />
-            <input type="submit" value="login" />
+<article class="wrapper">
+    <!-- Login -->
+    <section class="section" id="pgLogin">
+        <h1 class="title">LOGIN</h1>
+        <form class="form" id="formLogin">
+            <p class="feild">
+                <input class="input" type="text" placeholder="what is your NAME?" maxlength="20" />
+            </p>
+            <button class="btn" type="submit" disabled>
+                <!-- <svg viewBox="0 0 16 16">
+                    <circle stroke-opacity=".1" cx="8" cy="8" r="6"></circle>
+                    <circle class="load" cx="8" cy="8" r="6"></circle>
+                </svg> -->
+                <span>submit</span>
+            </button>
         </form>
     </section>
-    <section class="page" id="pgIndex" aria-hidden="true">
-        <h2>Hi!👋<span id="greeting">THERE</span></h2>
+    <!-- //Login -->
+
+    <!-- Index -->
+    <section class="section" id="pgIndex" aria-hidden="true">
+        <h2 class="sub_title">Hi!👋<span class="user" id="greeting">THERE</span></h2>
     </section>
-    <script src="app.js"></script>
+    <!-- //Index -->
+</article>
+<script src="app.js"></script>
 </body>
 </html>
