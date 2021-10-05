@@ -5,7 +5,8 @@
  */
 /* SELECTOR */
 const $loginForm = document.getElementById('formLogin'),
-      $userName = $loginForm.querySelector('input');
+      $userName = $loginForm.querySelector('input'),
+      $loginBtn = $loginForm.querySelector('button');
 const $userGreet = document.querySelector('#greeting');
 const $pageLogin = document.getElementById('pgLogin'),
       $pageIndex = document.getElementById('pgIndex');
@@ -39,6 +40,11 @@ function login() {
     console.log(`hello, ${saveUsername}`)
   }
 }
+// test
+$userName.addEventListener('keydown', e => {
+  $loginBtn.disabled = false;
+  console.log('test')
+});
 
 /**
  * @Inits : 초기실행
