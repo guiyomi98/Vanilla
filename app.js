@@ -46,12 +46,29 @@ $userName.addEventListener('keydown', e => {
   console.log('test')
 });
 
+// clock
+const $time = document.getElementById('time')
+
+function clock() {
+  const date = new Date();
+
+  const hours   = String(date.getHours()).padStart(2, "0"),
+        minutes = String(date.getMinutes()).padStart(2, "0"),
+        seconds = String(date.getSeconds()).padStart(2, "0");
+  
+  $time.innerHTML = `${hours}:${minutes}:${seconds}`;
+
+  // console.log('Time is ticking')
+}
+
 /**
  * @Inits : 초기실행
  */
 /* SETTING */
 function setInit() {
   login()
+  clock()
+  setInterval(clock, 1000);
 }
 /* READY */
 document.addEventListener("DOMContentLoaded", () => {
