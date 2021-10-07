@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @Constant : 전역변수
+ * @constant
  */
 /* SELECTOR */
 const $loginForm = document.getElementById('formLogin'),
@@ -10,8 +10,10 @@ const $loginForm = document.getElementById('formLogin'),
 const $userGreet = document.querySelector('#greeting');
 const $pageLogin = document.getElementById('pgLogin'),
       $pageIndex = document.getElementById('pgIndex');
+const $time =      document.getElementById('time');
 /* CSS CLASSNAME */
-/* DATA */
+const HIDE_CN = 'hide';
+/* KEY DATA */
 const USERNAME_KEY = 'username';
 
 /**
@@ -40,15 +42,8 @@ function login() {
     console.log(`hello, ${saveUsername}`)
   }
 }
-// test
-$userName.addEventListener('keydown', e => {
-  $loginBtn.disabled = false;
-  console.log('test')
-});
 
 // clock
-const $time = document.getElementById('time')
-
 function clock() {
   const date = new Date();
 
@@ -57,9 +52,13 @@ function clock() {
         seconds = String(date.getSeconds()).padStart(2, "0");
   
   $time.innerHTML = `${hours}:${minutes}:${seconds}`;
-
-  // console.log('Time is ticking')
 }
+
+// test
+$userName.addEventListener('keydown', e => {
+  $loginBtn.disabled = false;
+  console.log('test')
+});
 
 /**
  * @Inits : 초기실행
