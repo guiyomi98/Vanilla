@@ -172,6 +172,7 @@ body {
     font-size: 1.6rem;
     font-weight: bold;
     color: var(--gray-color);
+    margin-bottom: 1rem;
 }
 .form .btn {
     position: relative;
@@ -191,6 +192,9 @@ body {
 }
 .section .user {
     color: var(--black-color);
+}
+.form + .list {
+    margin-top: 1rem;
 }
 
 /* components */
@@ -245,6 +249,38 @@ body {
     margin: 1rem 0;
 }
 
+.list li {
+    display: flex;
+    align-items: center;
+}
+.list li button {
+    position: relative;
+    font-size: 0;
+    width: 25px;
+    height: 25px;
+    background-color: var(--pale);
+    border-radius: 100%;
+    margin-left: 4px;
+}
+.list li button:before,
+.list li button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 1px;
+    background-color: var(--text-color);
+}
+.list li button::before {
+    transform: translateX(-50%) rotate(135deg);
+}
+.list li button:after {
+    transform: translateX(-50%) rotate(45deg);
+}
+.list li + li {
+    margin-top: 5px;
+}
 /* Utility classes */
 .hide,
 [aria-hidden="true"] {

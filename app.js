@@ -54,7 +54,67 @@ function clock() {
   $time.innerHTML = `${hours}:${minutes}:${seconds}`;
 }
 
+// todo list
+const $todoForm = document.getElementById('formTodo'),
+      $todoInput = $todoForm.querySelector('input');
+const $todoList = document.getElementById('listTodo');
+const TODO_KEY = 'todos';
+let todos = [];
+
+function paintTodo(newTodo) {
+  const item = document.createElement('li')
+  const text = document.createElement('span')
+  const button = document.createElement('button')
+  item.id = newTodo.id
+  button.innerText = 'cancle';
+  // button.classList.add('btn')
+  item.appendChild(text);
+  item.appendChild(button);
+  text.innerText = newTodo.text;
+  $todoList.appendChild(item)
+  button.addEventListener('click', delTodo)
+}
+
+function todoSubmit(e) {
+  e.preventDefault();
+  const newTodo = $todoInput.value;
+  $todoInput.value = '';
+  const objNewTodo = {
+    text: newTodo,
+    id: Date.now(),
+  }
+  todos.push(objNewTodo)
+  paintTodo(objNewTodo)
+  savTodo()
+}
+
+function savTodo() {
+  localStorage.setItem(TODO_KEY, JSON.stringify(todos))
+}
+
+function delTodo(e) {
+  const target = e.target.parentElement
+  target.remove()
+  todos = todos.filter((todo) => todo.id !== parseInt(target.id))
+  savTodo()
+}
+
+function todo() {
+  $todoForm.addEventListener('submit', todoSubmit)
+
+  const savedTodos = localStorage.getItem(TODO_KEY);
+
+  if (savedTodos !== null) {
+    const parsedTodos = JSON.parse(savedTodos)
+    todos = parsedTodos;
+    parsedTodos.forEach(paintTodo)
+  }
+}
+
+
 // test
+// let pressed = false;
+
 $userName.addEventListener('keydown', e => {
   $loginBtn.disabled = false;
   console.log('test')
@@ -68,6 +128,7 @@ function setInit() {
   login()
   clock()
   setInterval(clock, 1000);
+  todo()
 }
 /* READY */
 document.addEventListener("DOMContentLoaded", () => {
